@@ -4,19 +4,18 @@ Automated outreach tool that fetches Instagram display names and sends personali
 
 ---
 
-## Project Structure
+## Files in This Repo
 
-```
-.
-├── fetch_names.py      # Step 1: scrape Instagram display names into the CSV
-├── send_email.py       # Step 2: send (or draft) personalized emails
-├── email_body.txt      # Email body template — uses {name} placeholder
-├── influencers.csv     # Input data: ig_handle, email, name, sent_date
-├── .env                # Credentials (SMTP + sender info) — never commit this
-├── .env.example        # Template for .env
-├── requirements.txt    # Python dependencies
-└── ig_session.json     # Saved Playwright Instagram session (auto-generated)
-```
+| File | Description |
+|---|---|
+| `send_email.py` | Main script — reads the CSV and sends personalized emails |
+| `fetch_names.py` | Fetches each influencer's real first name from their Instagram profile |
+| `email_body.txt` | Email body template — edit this to change the message sent to influencers |
+| `influencers.csv` | Influencer list with columns: `ig_handle`, `email`, `name`, `sent_date` |
+| `.env.example` | Template showing which credentials you need to set up (copy to `.env`) |
+| `requirements.txt` | Python package dependencies — install with `pip install -r requirements.txt` |
+
+> **Note:** `.env` (real credentials), `ig_session.json` (Instagram session), virtual environments, and test files are excluded from this repo and exist only on your local machine.
 
 ---
 
@@ -66,11 +65,11 @@ janedoe,jane@example.com,,
 
 **3. Write the email body**
 
-Edit `email_body.txt`. Use `{name}` where you want the recipient's first name inserted. Formatting supported in the template:
+Edit `email_body.txt`. Use `{name}` where you want the recipient's first name inserted. Formatting supported:
 
 - `**bold text**` — rendered as bold in the HTML email
 - `- bullet item` — rendered as an indented list
-- A line that is entirely `**bold**` (nothing else on the line) becomes a section heading
+- A line that is entirely `**bold**` becomes a section heading
 
 ---
 
