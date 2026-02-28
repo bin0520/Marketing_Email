@@ -1,7 +1,24 @@
+# Credentials & sessions
 .env
 ig_session.json
+
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Test files
 test_*.py
 *_test.py
 test_*.csv
+
+# IDE & tool config
+.claude/
+.vscode/
+.idea/
