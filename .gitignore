@@ -2,3 +2,5 @@
 ig_session.json
 __pycache__/
 *.pyc
+test_*.py
+*_test.py
