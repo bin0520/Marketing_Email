@@ -11,8 +11,8 @@ Automated outreach tool that fetches Instagram display names and sends personali
 | `send_email.py` | Main script — reads the CSV and sends personalized emails |
 | `fetch_names.py` | Fetches each influencer's real first name from their Instagram profile |
 | `email_body.txt` | Email body template — edit this to change the message sent to influencers |
-| `influencers.csv` | Influencer list with columns: `ig_handle`, `email`, `name`, `sent_date` |
-| `.env.example` | Template showing which credentials you need to set up (copy to `.env`) |
+| `influencers.example.csv` | **Template** — copy to `influencers.csv` and fill in your influencer handles and emails |
+| `.env.example` | **Template** — copy to `.env` and fill in your SMTP credentials (never commit `.env`) |
 | `requirements.txt` | Python package dependencies — install with `pip install -r requirements.txt` |
 
 > **Note:** `.env` (real credentials), `ig_session.json` (Instagram session), virtual environments, and test files are excluded from this repo and exist only on your local machine.
@@ -53,7 +53,11 @@ SENDER_PASSWORD=your_password
 
 **2. Prepare the influencer list**
 
-Create or edit `influencers.csv` with at minimum these columns:
+Copy `influencers.example.csv` to `influencers.csv` and fill in your data:
+
+```bash
+cp influencers.example.csv influencers.csv
+```
 
 ```csv
 ig_handle,email,name,sent_date
@@ -62,6 +66,7 @@ janedoe,jane@example.com,,
 
 - `name` and `sent_date` can be left blank — they are filled in automatically.
 - Any row with a `sent_date` already set will be skipped when sending.
+- `influencers.csv` is gitignored — your data stays local and is never pushed.
 
 **3. Write the email body**
 
